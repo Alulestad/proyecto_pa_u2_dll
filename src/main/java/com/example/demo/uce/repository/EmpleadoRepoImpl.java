@@ -19,5 +19,23 @@ public class EmpleadoRepoImpl implements IEmpleadoRepo {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(empleado);
 	}
+	@Override
+	public void eliminar(Integer id) {
+		// TODO Auto-generated method stub
+		Empleado aEliminar=this.buscar(id);
+		this.entityManager.remove(aEliminar);
+		
+	}
+	@Override
+	public Empleado buscar(Integer id) {
+		// TODO Auto-generated method stub
+		Empleado encontrado=this.entityManager.find(Empleado.class, id);
+		return encontrado;
+	}
+	@Override
+	public void actualizar(Empleado empleado) {
+		// TODO Auto-generated method stub
+		this.entityManager.merge(empleado);
+	}
 
 }

@@ -12,6 +12,7 @@ import com.example.demo.uce.modelo.Ciudadano;
 import com.example.demo.uce.modelo.Empleado;
 import com.example.demo.uce.modelo.Estudiante;
 import com.example.demo.uce.service.ICiudadanoService;
+import com.example.demo.uce.service.IEmpleadoService;
 import com.example.demo.uce.service.IEstudianteService;
 
 
@@ -19,11 +20,14 @@ import com.example.demo.uce.service.IEstudianteService;
 @SpringBootApplication
 public class ProyectoPaU2DllApplication implements CommandLineRunner{
 
-	@Autowired
-	private IEstudianteService estudianteService;
+	//@Autowired
+	//private IEstudianteService estudianteService;
 	
 	@Autowired
 	private ICiudadanoService ciudadanoService;
+	
+	@Autowired
+	private IEmpleadoService empleadoService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DllApplication.class, args);
@@ -32,13 +36,12 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 
-		Estudiante estu= new Estudiante();
-//		estu.setId(8);
-		estu.setNombre("Daniel");
-		estu.setApellido("Llumiquinga");
-		estu.setCedula("1721495628");
-		estu.setCiudad("Quito");
-		estu.setGenero("M");
+//		Estudiante estu= new Estudiante();
+//		estu.setNombre("Daniel");
+//		estu.setApellido("Llumiquinga");
+//		estu.setCedula("1721495628");
+//		estu.setCiudad("Quito");
+//		estu.setGenero("M");
 		
 		
 		Ciudadano ciu= new Ciudadano();
