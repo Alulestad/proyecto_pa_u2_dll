@@ -53,9 +53,10 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 		empleado.setFechaIngreso(LocalDateTime.now());
 		empleado.setSalario(new BigDecimal(10));
 		
-		ciu.setEmpleado(empleado);
+		//ciu.setEmpleado(empleado);
 		
-		//ciudadanoService.agregar(ciu);
+		this.ciudadanoService.agregar(ciu);
+		this.empleadoService.agregar(empleado);
 	
 //		
 //		System.out.println("Se eliminara el estudiante: "+ estu);
