@@ -57,6 +57,19 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 		
 		this.ciudadanoService.agregar(ciu);
 		this.empleadoService.agregar(empleado);
+		
+		System.out.println(this.ciudadanoService.consultar(4));
+		System.out.println(this.empleadoService.consultar(1));
+		
+		ciu.setApellido("Molina");
+		this.ciudadanoService.actualizar(ciu);
+		
+		empleado.setSalario(new BigDecimal(100));
+		this.empleadoService.actualizar(empleado);
+		
+		this.empleadoService.borrar(empleado.getId());
+		this.ciudadanoService.borrar(ciu.getId());
+		
 	
 //		
 //		System.out.println("Se eliminara el estudiante: "+ estu);
