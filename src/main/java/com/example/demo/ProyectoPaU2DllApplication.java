@@ -2,12 +2,17 @@ package com.example.demo;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.example.demo.hotel.modelo.Habitacion;
+import com.example.demo.hotel.modelo.Hotel;
+import com.example.demo.hotel.service.IHotelService;
 import com.example.demo.uce.modelo.Ciudadano;
 import com.example.demo.uce.modelo.Empleado;
 import com.example.demo.uce.modelo.Estudiante;
@@ -23,11 +28,15 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	//@Autowired
 	//private IEstudianteService estudianteService;
 	
+	/*
 	@Autowired
 	private ICiudadanoService ciudadanoService;
 	
 	@Autowired
 	private IEmpleadoService empleadoService;
+	*///CIUDADANO EMPLEADO
+	@Autowired
+	private IHotelService hotelService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DllApplication.class, args);
@@ -99,7 +108,35 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 //		System.out.println();
 //		
 		
-		                              //////HOTEL HAVITACIONES
+		                              //////HOTEL HABITACIONES
+		Hotel hotel1=new Hotel();
+		hotel1.setDireccion("Colon y America");
+		hotel1.setNombre("Rinconsito");
+		
+		Habitacion habitacion1= new Habitacion();
+		habitacion1.setHotel(hotel1);
+		habitacion1.setNumero("A1");
+		Habitacion habitacion2= new Habitacion();
+		habitacion2.setHotel(hotel1);
+		habitacion2.setNumero("A2");
+		Habitacion habitacion3= new Habitacion();
+		habitacion3.setHotel(hotel1);
+		habitacion3.setNumero("A3");
+		
+		List<Habitacion> listaHabi1=new ArrayList<Habitacion>();
+		listaHabi1.add(habitacion1);
+		listaHabi1.add(habitacion2);
+		listaHabi1.add(habitacion3);
+		
+		hotel1.setHabitaciones(listaHabi1);
+		this.hotelService.crear(hotel1);
+		
+		hotel1.setNombre("Doña Pepa");
+		this.hotelService.actualizar(hotel1);
+		
+		this.hotelService.consultar(2);
+		
+		this.hotelService.eliminar(2);
 		
 		
 	}
