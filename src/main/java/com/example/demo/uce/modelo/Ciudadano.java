@@ -2,6 +2,7 @@ package com.example.demo.uce.modelo;
 
 import org.hibernate.annotations.ForeignKey;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -25,7 +26,9 @@ public class Ciudadano {
 	@Column(name = "ciud_apellido")
 	private String apellido;
 	
-	@OneToOne(mappedBy = "ciudadano") //se va a mapear con ciudadano de la clase empleado
+	@OneToOne(mappedBy = "ciudadano", cascade = CascadeType.ALL) //se va a mapear con ciudadano de la clase empleado
+	//CascadeType.ALL uso casscada en todo, pero si quiero solo en el merge póngo en verz del all, merge
+	//@OneToOne(mappedBy = "ciudadano")
 	private Empleado empleado;
 	
 	//Get y set

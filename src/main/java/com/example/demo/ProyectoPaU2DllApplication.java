@@ -43,32 +43,44 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 //		estu.setCiudad("Quito");
 //		estu.setGenero("M");
 		
-		
+		/*
 		Ciudadano ciu= new Ciudadano();
 		ciu.setApellido("Llumiquinga");
 		ciu.setNombre("Daniel");
 		
+		Ciudadano ciu2= new Ciudadano();
+		ciu2.setApellido("Llumiquinga2");
+		ciu2.setNombre("Daniel2");
+		
 		Empleado empleado=new Empleado();
-		empleado.setCiudadano(ciu);
-		empleado.setFechaIngreso(LocalDateTime.now());
-		empleado.setSalario(new BigDecimal(10));
+		Empleado empleado2=new Empleado();
+		empleado2.setCiudadano(ciu2);
+		empleado2.setFechaIngreso(LocalDateTime.now());
+		empleado2.setSalario(new BigDecimal(10));
 		
-		//ciu.setEmpleado(empleado);
+		ciu.setEmpleado(empleado);
 		
-		this.ciudadanoService.agregar(ciu);
-		this.empleadoService.agregar(empleado);
+		ciu2.setEmpleado(empleado2);
 		
-		System.out.println(this.ciudadanoService.consultar(4));
-		System.out.println(this.empleadoService.consultar(1));
 		
-		ciu.setApellido("Molina");
-		this.ciudadanoService.actualizar(ciu);
+		//this.ciudadanoService.agregar(ciu);
+		this.ciudadanoService.agregar(ciu2);
 		
-		empleado.setSalario(new BigDecimal(100));
-		this.empleadoService.actualizar(empleado);
+		//this.empleadoService.agregar(empleado2);
 		
-		this.empleadoService.borrar(empleado.getId());
-		this.ciudadanoService.borrar(ciu.getId());
+		*///EN CLASE 2023-01-23 
+		
+//		System.out.println(this.ciudadanoService.consultar(4));
+//		System.out.println(this.empleadoService.consultar(1));
+//		
+//		ciu.setApellido("Molina");
+//		this.ciudadanoService.actualizar(ciu);
+//		
+//		empleado.setSalario(new BigDecimal(100));
+//		this.empleadoService.actualizar(empleado);
+//		
+//		this.empleadoService.borrar(empleado.getId());
+//		this.ciudadanoService.borrar(ciu.getId());
 		
 	
 //		
@@ -86,6 +98,9 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 //		System.out.println("Estudiante modificado: "+ this.estudianteService.buscar(5));
 //		System.out.println();
 //		
+		
+		                              //////HOTEL HAVITACIONES
+		
 		
 	}
 
