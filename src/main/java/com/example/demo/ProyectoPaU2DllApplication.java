@@ -128,15 +128,17 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 		listaHabi1.add(habitacion2);
 		listaHabi1.add(habitacion3);
 		
-		hotel1.setHabitaciones(listaHabi1);
-		this.hotelService.crear(hotel1);
+//		hotel1.setHabitaciones(listaHabi1);
+//		this.hotelService.crear(hotel1);
+//		
+//		hotel1.setNombre("Doña Pepa");
+//		this.hotelService.actualizar(hotel1);
+//		
+//		this.hotelService.consultar(2);
 		
-		hotel1.setNombre("Doña Pepa");
-		this.hotelService.actualizar(hotel1);
+//		this.hotelService.eliminar(2);
 		
-		this.hotelService.consultar(2);
-		
-		this.hotelService.eliminar(2);
+		System.out.println(this.hotelService.consultar(3)); 
 		
 		
 	}
