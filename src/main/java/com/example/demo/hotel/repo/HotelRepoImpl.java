@@ -1,5 +1,6 @@
 package com.example.demo.hotel.repo;
 
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.hotel.modelo.Hotel;
@@ -9,7 +10,7 @@ import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
 
 @Transactional
-@Service
+@Repository
 public class HotelRepoImpl implements IHotelRepo {
 
 	@PersistenceContext
