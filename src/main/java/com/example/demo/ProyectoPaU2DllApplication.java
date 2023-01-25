@@ -12,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.hotel.modelo.Habitacion;
 import com.example.demo.hotel.modelo.Hotel;
+import com.example.demo.hotel.service.IHabitacionService;
 import com.example.demo.hotel.service.IHotelService;
 import com.example.demo.uce.modelo.Ciudadano;
 import com.example.demo.uce.modelo.Empleado;
@@ -37,6 +38,9 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	*///CIUDADANO EMPLEADO
 	@Autowired
 	private IHotelService hotelService;
+	
+	@Autowired
+	private IHabitacionService habitacionService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DllApplication.class, args);
@@ -129,17 +133,55 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 		listaHabi1.add(habitacion3);
 		
 		hotel1.setHabitaciones(listaHabi1);
-		this.hotelService.crear(hotel1);
 		
-		hotel1.setNombre("Doña Pepa");
-		this.hotelService.actualizar(hotel1);
+		
+//		this.hotelService.crear(hotel1);
+//		
+//		hotel1.setNombre("Doña Pepa");
+//		this.hotelService.actualizar(hotel1);
 	
-		this.hotelService.consultar(1);
+		//this.hotelService.consultar(1);
 		
-		this.hotelService.eliminar(1);
+		//this.hotelService.eliminar(1);
 		
 		//System.out.println(this.hotelService.consultar(3)); 
 		
+		
+		Hotel hotel=this.hotelService.consultar(3);
+		Habitacion habitacion4= new Habitacion();
+		habitacion4.setNumero("A5");
+		
+		habitacion4.setHotel(hotel);
+		
+		//this.habitacionService.crear(habitacion4);
+		
+		//******* Eliminar habitacion
+		//this.habitacionService.eliminar(12); si funciono ****** ojo
+		//ForMA 2 con merge
+		//no parece funcionar pero equis
+//		hotel.getHabitaciones().remove(1);
+//		this.hotelService.actualizar(hotel);
+		//******FIN******
+		
+		//FORMAS DE INSERTAR UNE NUEVA HABITACION
+		//buscamos hotel
+		//crea habitacion
+		//set de hiotel en la habitacion
+		//insert
+		//En este caso hay dos caminos, el otro seria usando el merge de hotel.
+		
+		
+		//******Consultar el hotel con las habitaciones******
+		Hotel hotelCopHabitaciones=this.hotelService.consultar(3);
+		System.out.println(hotelCopHabitaciones);
+		
+		List <Habitacion> listaDeH=hotelCopHabitaciones.getHabitaciones();
+		listaDeH.forEach(System.out::println);
+		//System.out.println(listaDeH);
+		//Habitacion h1= hotelCopHabitaciones.getHabitaciones().remove(0);
+		//System.out.println(h1);
+		
+		//******FIN******
 		
 	}
 
