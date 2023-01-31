@@ -3,7 +3,9 @@ package com.example.demo;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,6 +16,9 @@ import com.example.demo.hotel.modelo.Habitacion;
 import com.example.demo.hotel.modelo.Hotel;
 import com.example.demo.hotel.service.IHabitacionService;
 import com.example.demo.hotel.service.IHotelService;
+import com.example.demo.libreria.modelo.Autor;
+import com.example.demo.libreria.modelo.Libro;
+import com.example.demo.libreria.service.IAutorService;
 import com.example.demo.uce.modelo.Ciudadano;
 import com.example.demo.uce.modelo.Empleado;
 import com.example.demo.uce.modelo.Estudiante;
@@ -42,12 +47,46 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	@Autowired
 	private IHabitacionService habitacionService;
 	
+	
+	
+	//LIBRERIA:
+	@Autowired
+	private IAutorService  autorService;
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DllApplication.class, args);
 	}
 
+	
 	@Override
 	public void run(String... args) throws Exception {
+		
+		Autor autor1= new Autor();
+		autor1.setNombre("WS");
+		Set<Autor> listaAutor1=new HashSet<Autor>(); 
+		listaAutor1.add(autor1);
+		
+		Libro libro1=new Libro();
+		libro1.setNombre("P. Web");
+		libro1.setEditorial("PLANETA");
+		libro1.setAutores(listaAutor1);
+		
+		Libro libro2=new Libro();
+		libro2.setNombre("Redes");
+		libro2.setEditorial("PLANETA");
+		libro2.setAutores(listaAutor1);
+		
+		Set<Libro> listaLibros1=new HashSet<Libro>();
+		listaLibros1.add(libro1);
+		listaLibros1.add(libro2);
+		
+		autor1.setLibros(listaLibros1);
+		autorService.agregarAutor(autor1);
+		
+	}
+	
+	
+	public void run2(String... args) throws Exception {
 
 //		Estudiante estu= new Estudiante();
 //		estu.setNombre("Daniel");
