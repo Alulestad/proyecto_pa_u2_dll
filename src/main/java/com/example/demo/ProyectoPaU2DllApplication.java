@@ -53,6 +53,10 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	@Autowired
 	private IAutorService  autorService;
 	
+	
+	//CONCESIONARIA
+	
+	
 	public static void main(String[] args) {
 		SpringApplication.run(ProyectoPaU2DllApplication.class, args);
 	}
@@ -60,6 +64,12 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	
 	@Override
 	public void run(String... args) throws Exception {
+		System.out.println("CONCESIONARIA");
+		
+		
+	}
+	
+	public void runAutores(String... args) throws Exception {
 		
 		Autor autor1= new Autor();
 		autor1.setNombre("WS");
@@ -86,7 +96,7 @@ public class ProyectoPaU2DllApplication implements CommandLineRunner{
 	}
 	
 	
-	public void run2(String... args) throws Exception {
+	public void runHoteles(String... args) throws Exception {
 
 //		Estudiante estu= new Estudiante();
 //		estu.setNombre("Daniel");
