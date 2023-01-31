@@ -1,5 +1,6 @@
 package com.example.demo.concesionaria.modelo;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Set;
 
@@ -31,8 +32,8 @@ public class Vehiculo {
 	private LocalDateTime anio;
 	@Column(name = "vehi_marca")
 	private String marca;
-	@Column(name = "vehi_motor")
-	private String motor;
+	@Column(name = "vehi_precio")
+	private BigDecimal precio;
 	
 	@ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 	@JoinTable(
@@ -75,12 +76,12 @@ public class Vehiculo {
 		this.marca = marca;
 	}
 
-	public String getMotor() {
-		return motor;
+	public BigDecimal getPrecio() {
+		return precio;
 	}
 
-	public void setMotor(String motor) {
-		this.motor = motor;
+	public void setPrecio(BigDecimal precio) {
+		this.precio = precio;
 	}
 
 	public Set<Cliente> getClientes() {
